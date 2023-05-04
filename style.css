@@ -190,7 +190,7 @@ body {
 }
 .notice a {
 	text-decoration: none;
-	color: hsl(0, 65%, 54%); /* Links must be distinguishable without relying on color */
+	color: var(--clr-primary-200-solid);
 }
 
 .sign-up-form__item {
