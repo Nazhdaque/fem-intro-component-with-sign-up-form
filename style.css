@@ -37,6 +37,7 @@
 :root {
 	/* colors */
 	--clr-primary-200-solid: hsl(0, 100%, 74%);
+	--clr-primary-400-solid: hsl(0, 67%, 54%);
 	--clr-primary-500-solid: hsl(154, 59%, 51%);
 	--clr-primary-700-solid: hsl(154, 59%, 45%);
 	--clr-accent-500-solid: hsl(248, 32%, 49%);
@@ -64,6 +65,8 @@
 	--fw-bold: 700;
 
 	--lh-regular: 1.65;
+
+	--transition-duration: 0.25s;
 }
 
 *,
@@ -152,7 +155,6 @@ body {
 
 .btn {
 	--shadow-thickness: 3px;
-	--transition-duration: 0.1s;
 
 	cursor: pointer;
 	text-align: center;
@@ -187,10 +189,37 @@ body {
 	padding-inline: var(--form-gap);
 	line-height: 2;
 	margin-top: 0.75rem;
+	transition: color var(--transition-duration);
 }
-.notice a {
+.notice-link {
 	text-decoration: none;
+	outline: none;
 	color: var(--clr-primary-200-solid);
+	transition: color var(--transition-duration);
+	position: relative;
+}
+.notice-link::before {
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: -1px;
+	background: var(--clr-primary-400-solid);
+	height: 1px;
+	width: 0%;
+	transition: width var(--transition-duration);
+}
+
+.notice-a11y:where(:focus-visible, :hover) + .notice,
+.notice:where(:focus-visible, :hover) {
+	color: var(--clr-accent-500-solid);
+}
+.notice-a11y:where(:focus-visible, :hover) + .notice .notice-link,
+.notice:where(:focus-visible, :hover) .notice-link {
+	color: var(--clr-primary-400-solid);
+}
+.notice-a11y:where(:focus-visible, :hover) + .notice .notice-link::before,
+.notice:where(:focus-visible, :hover) .notice-link::before {
+	width: 100%;
 }
 
 .sign-up-form__item {
