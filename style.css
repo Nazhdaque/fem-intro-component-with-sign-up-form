@@ -90,7 +90,10 @@ body {
 	--gap: 4rem;
 	--width-3-fluid: min((var(--max-content-width) - var(--gap) * 2) / 3, 100%);
 	--shrink-ratio: 0.95;
-	--col-3: repeat(auto-fit, minmax(calc(var(--width-3-fluid) * var(--shrink-ratio)), 1fr));
+	--col-3: repeat(
+		auto-fit,
+		minmax(calc(var(--width-3-fluid) * var(--shrink-ratio)), 1fr)
+	);
 
 	--form-gap: clamp(1.5rem, 2vw + 1rem, 2.5rem);
 	--paddind: 1rem clamp(1.25rem, 2vw + 0.75rem, 2rem);
@@ -169,8 +172,8 @@ body {
 	padding: var(--paddind);
 	font-size: var(--fs-300);
 	line-height: 1.1;
-	transition: background-color var(--transition-duration), transform var(--transition-duration),
-		box-shadow var(--transition-duration);
+	transition: background-color var(--transition-duration),
+		transform var(--transition-duration), box-shadow var(--transition-duration);
 	outline: none;
 }
 .btn:where(:focus-visible, :hover) {
